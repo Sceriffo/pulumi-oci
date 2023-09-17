@@ -1,0 +1,3 @@
+name: sceriffo-oci
+runtime: nodejs
+description: Oci infrastructure provisioning free-tier

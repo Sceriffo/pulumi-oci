@@ -1,0 +1,31 @@
+---
+- name: Install Docker and Docker Compose on ARM Linux
+  hosts: webservers
+  gather_facts: yes
+
+  tasks:
+    - name: Update package cache
+      become: yes
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+          - docker.io
+
+    - name: Add Docker Compose alias
+      lineinfile:
+        dest: ~/.bashrc
+        line: 'alias docker-compose="docker compose"'
+      become: yes
+
+    - name: Install Loki plugin
+      community.docker.docker_plugin:
+        plugin_name: grafana/loki-docker-driver:latest
+        state: present
+      become: yes

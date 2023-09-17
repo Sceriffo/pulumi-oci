@@ -6,7 +6,8 @@
         "@types/node": "^18"
     },
     "dependencies": {
-        "@pulumi/pulumi": "3.60.0",
-        "@pulumi/oci": "0.13.0"
+        "@pulumi/command": "^0.9.1",
+        "@pulumi/oci": "1.10.0",
+        "@pulumi/pulumi": "3.84.0"
     }
 }

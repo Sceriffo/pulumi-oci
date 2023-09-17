@@ -1,3 +1,6 @@
 /bin/
 /node_modules/
-*.yaml
+Pulumi.*.yaml
+ip_list.txt
+.env
+ansible_hosts
