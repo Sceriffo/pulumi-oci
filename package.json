@@ -1,0 +1,12 @@
+{
+    "name": "sceriffo-oci",
+    "main": "index.ts",
+    "exports": "./index.js",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "3.60.0",
+        "@pulumi/oci": "0.13.0"
+    }
+}
