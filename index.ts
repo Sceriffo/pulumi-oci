@@ -1,7 +1,6 @@
 import * as oci from "@pulumi/oci";
 import * as pulumi from "@pulumi/pulumi";
 import * as command from "@pulumi/command";
-import { env } from "process";
 
 async function bootstrap() {
   // configuration
@@ -129,6 +128,7 @@ async function bootstrap() {
   // RUN ANSIBLE
   const ansible = new command.local.Command("playAnsiblePlaybookCmd", {
     create: pulumi.interpolate`ansible-playbook \
+            ansible_ssh_common_args='-o StrictHostKeyChecking=no' \
             -u ubuntu -i ansible/ansible_hosts \
             --private-key ${process.env.OCI_INSTANCES_PRIVATE_KEY_PATH} \
             ansible/machine_setup.yaml`,

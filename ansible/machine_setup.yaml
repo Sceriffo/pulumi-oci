@@ -22,6 +22,9 @@
       lineinfile:
         dest: ~/.bashrc
         line: 'alias docker-compose="docker compose"'
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
       become: yes
 
     - name: Install Loki plugin
